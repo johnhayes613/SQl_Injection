@@ -12,7 +12,7 @@ db = mysql.connector.connect(
     database="dummy_db"
 )
 
-openai.api_key = 'sk-proj-ZXikCxowEwDNEVn19oIUT3BlbkFJNlje1gWaSCMYlBOX2RPn'
+#openai.api_key = 'OpenAI API key here'
 
 def get_sqlmap_results():
     with open('output.txt', 'r') as file:

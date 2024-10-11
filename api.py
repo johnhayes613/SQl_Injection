@@ -1,6 +1,6 @@
 import openai
 
-openai.api_key = 'sk-proj-ZXikCxowEwDNEVn19oIUT3BlbkFJNlje1gWaSCMYlBOX2RPn'
+#openai.api_key = //OpenAi API Key here
 
 def get_sqlmap_results():
     with open('output.txt', 'r') as file:
