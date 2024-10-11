@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SQL Injection Demo</title>
+</head>
+<body>
+    <form id="sqlmapForm">
+        <label for="url">Form URL:</label>
+        <input type="text" id="url" name="url"><br>
+        <button type="button" onclick="runSqlmap()">Run SQLmap</button>
+    </form>
+    <div id="results"></div>
+    <div id="qa">
+        <input type="text" id="question" placeholder="Ask a question about the results">
+        <button type="button" onclick="askQuestion()">Ask</button>
+        <div id="answer"></div>
+    </div>
+
+    <script>
+        function runSqlmap() {
+            let url = document.getElementById('url').value;
+            fetch('/run_sqlmap', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ url: url })
+            }).then(response => response.json())
+              .then(data => {
+                document.getElementById('results').innerText = data.results;
+              });
+        }
+
+        function askQuestion() {
+            let question = document.getElementById('question').value;
+            fetch('/ask_question', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: question })
+            }).then(response => response.json())
+              .then(data => {
+                document.getElementById('answer').innerText = data.answer;
+              });
+        }
+    </script>
+</body>
+</html>
