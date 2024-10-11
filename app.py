@@ -57,7 +57,7 @@ def run_sqlmap():
     url = data['url']
     
     result = subprocess.run(
-        ['python', 'sqlmap.py', '-u', url, '--data="username=admin&password=password123"', '--dump'],
+        ['python', 'sqlmap.py', '-u', url, '--data', '--dump'],
         capture_output=True, text=True
     )
     
